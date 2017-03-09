@@ -1,0 +1,35 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "pentaho",
+      "image": "senzil/pentaho:6.1",
+      "essential": true,
+      "memory": 2048,
+      "environment": [
+        {
+          "name": "RDS_HOSTNAME",
+          "value": "$RDS_HOSTNAME"
+        },
+        {
+          "name": "RDS_USERNAME",
+          "value": "$RDS_USERNAME"
+        },
+        {
+          "name": "RDS_PASSWORD",
+          "value": "$RDS_PASSWORD"
+        },
+        {
+          "name": "RDS_DB_NAME",
+          "value": "$RDS_DB_NAME"
+        }
+      ],
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 8080
+        }
+      ]
+    }
+  ]
+}
